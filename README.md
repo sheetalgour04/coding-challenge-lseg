@@ -3,9 +3,6 @@
 This project demonstrates how to:
 
 * Create an **AWS EC2 instance** using Terraform
-* Generate a **dynamic PEM key** for SSH access
-* Save the private key locally
-* Optionally run **remote-exec provisioners**
 * Fetch metadata or execute scripts on the instance
 * Run a Python script to query **EC2 instance metadata and dynamic instance identity document (IMDSv2)**
 
