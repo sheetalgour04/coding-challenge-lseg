@@ -1,15 +1,14 @@
-# Terraform EC2 with Dynamic Key Pair
+# EC2 Metadata Fetch & Key-Based Query Script
 
 This project demonstrates how to:
 
 * Create an **AWS EC2 instance** using Terraform
-* Fetch metadata or execute scripts on the instance
-* Run a Python script to query **EC2 instance metadata and dynamic instance identity document (IMDSv2)**
+* Fetch metadata using null resources or directly use python script to query **EC2 instance metadata and dynamic instance identity document (IMDSv2)**
 
 ---
 
-### 📌 Note on Terraform Modules
-I have **not used the `terraform` block with modules** in this implementation.  
+### Note on Terraform Modules
+I have **not used the `terraform modules`** in this implementation.  
 This is intentional because the task needed to be **self-contained and easily executable** without requiring external module dependencies.  
 
 - Keeps the setup simple and portable for quick testing.  
@@ -35,7 +34,12 @@ This is intentional because the task needed to be **self-contained and easily ex
 terraform init
 ```
 
-### 2. Plan the Infrastructure
+### 2. Configure AWS CLI with the credentials for terraform apply
+```bash
+aws configure
+``` 
+
+### 3. Plan the Infrastructure
 
 ```bash
 terraform plan
@@ -49,26 +53,30 @@ Check what Terraform will create before applying.
 terraform apply
 ```
 
-* Terraform will create:
-  * TLS private key
-  * AWS key pair
-  * EC2 instance
-  * Local file with PEM key
-  * Null resources which will execute the python script to fetch metadata based on `TFVAR = fetch_key`
+Terraform will create:
+  - TLS private key
+  - AWS key pair
+  - EC2 instance
+  - Local file with PEM key
+  - Null resources which will execute the python script to fetch metadata
 
-`Note: To fetch new content, update the TF variable fetch_key in the command-line and re-apply.`
 
-```bash
-
-# default value is "" for fetch_key
-terraform apply -var=fetch_key=
-
-# pass single key in fetch_key to fetch the data for that particular key-value
-terraform apply -var=fetch_key='network'
-
-# pass fullpath in fetch_key to fetch all data till that path
-terraform apply -var=fetch_key='meta-data.block-device-mapping.ami'
+```yaml 
+Note: By default, the script retrieves all metadata. To fetch a specific key/value, update the Terraform variable fetch_key via the command line and apply the changes each time.
 ```
+
+Example commands - 
+
+  ```bash
+  # default value is "" for fetch_key
+  terraform apply -var=fetch_key=
+
+  # pass single key in fetch_key to fetch the data for that particular key-value
+  terraform apply -var=fetch_key='network'
+
+  # pass fullpath in fetch_key to fetch all data till that path
+  terraform apply -var=fetch_key='meta-data.block-device-mapping.ami'
+  ```
 
 ### 4. See the content of JSON file generated
 
@@ -95,7 +103,10 @@ terraform destroy
 ssh -i my-ec2-key.pem ubuntu@<instance-public-ip>
 ```
 
-### 2. Run the Python Metadata Script
+### 2. Copy the fetch_metadata.py file into the instance
+
+
+### 3. Run the Python Metadata Script
 
 The Python script `fetch_metadata.py` does the following:
 
@@ -107,8 +118,6 @@ The Python script `fetch_metadata.py` does the following:
 #### Example Usage:
 
 ```bash
-cd /tmp
-
 # Fetch full metadata and identity document
 python3 fetch_metadata.py
 
@@ -119,7 +128,7 @@ python3 fetch_metadata.py instance-id
 python3 fetch_metadata.py dynamic.accountId
 
 # Fetch a key by giving full path
-python3 fetch_metadata.py
+python3 fetch_metadata.py meta-data.public-ipv4
 ```
 
 ---
