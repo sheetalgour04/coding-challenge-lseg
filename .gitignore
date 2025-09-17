@@ -1,0 +1,10 @@
+# Ignore Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform*
+
+# Ignore local private keys
+*.pem
+
+# Ignore local json keys
+*.json
