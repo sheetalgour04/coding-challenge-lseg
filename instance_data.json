@@ -1,0 +1,98 @@
+{
+  "meta-data": {
+    "ami-id": "ami-090c309e8ced8ecc2",
+    "ami-launch-index": "0",
+    "ami-manifest-path": "(unknown)",
+    "block-device-mapping": {
+      "ami": "sda1",
+      "ephemeral0": "sdb",
+      "ephemeral1": "sdc",
+      "root": "/dev/sda1"
+    },
+    "events": {
+      "maintenance": {
+        "history": "[]",
+        "scheduled": "[]"
+      }
+    },
+    "hibernation": "configured",
+    "hostname": "ip-172-31-22-198.ec2.internal",
+    "identity-credentials": {
+      "ec2": {
+        "info": {
+          "{": "Error: 404 Client Error: Not Found for url: http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info%7B",
+          "\"Code\" : \"Success\",": "Error: 404 Client Error: Not Found for url: http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info%22Code%22%20:%20%22Success%22,",
+          "\"LastUpdated\" : \"2025-09-17T18:19:11Z\",": "Error: 404 Client Error: Not Found for url: http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info%22LastUpdated%22%20:%20%222025-09-17T18:19:11Z%22,",
+          "\"AccountId\" : \"315915554123\"": "Error: 404 Client Error: Not Found for url: http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info%22AccountId%22%20:%20%22315915554123%22",
+          "}": "Error: 404 Client Error: Not Found for url: http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info%7D"
+        },
+        "security-credentials": "ec2-instance"
+      }
+    },
+    "instance-action": "none",
+    "instance-id": "i-058ebb40c1fc3f834",
+    "instance-life-cycle": "on-demand",
+    "instance-type": "t3.micro",
+    "local-hostname": "ip-172-31-22-198.ec2.internal",
+    "local-ipv4": "172.31.22.198",
+    "mac": "0a:ff:ff:d3:fb:cd",
+    "metrics": "vhostmd",
+    "network": {
+      "interfaces": {
+        "macs": {
+          "0a:ff:ff:d3:fb:cd": {
+            "device-number": "0",
+            "interface-id": "eni-0a13deef5ef025e12",
+            "ipv4-associations": "3.80.220.48",
+            "local-hostname": "ip-172-31-22-198.ec2.internal",
+            "local-ipv4s": "172.31.22.198",
+            "mac": "0a:ff:ff:d3:fb:cd",
+            "owner-id": "315915554123",
+            "public-hostname": "ec2-3-80-220-48.compute-1.amazonaws.com",
+            "public-ipv4s": "3.80.220.48",
+            "security-group-ids": "sg-07008cc629e97c87a",
+            "security-groups": "allow-ssh",
+            "subnet-id": "subnet-0da5fd97293797538",
+            "subnet-ipv4-cidr-block": "172.31.16.0/20",
+            "vpc-id": "vpc-0d74739a4083bc7d1",
+            "vpc-ipv4-cidr-block": "172.31.0.0/16",
+            "vpc-ipv4-cidr-blocks": "172.31.0.0/16"
+          }
+        }
+      }
+    },
+    "placement": {
+      "availability-zone": "us-east-1d",
+      "availability-zone-id": "use1-az4",
+      "region": "us-east-1"
+    },
+    "profile": "default-hvm",
+    "public-hostname": "ec2-3-80-220-48.compute-1.amazonaws.com",
+    "public-ipv4": "3.80.220.48",
+    "public-keys": "0=coding-challenge-instance-key",
+    "reservation-id": "r-08ecfecea1402925b",
+    "security-groups": "allow-ssh",
+    "services": {
+      "domain": "amazonaws.com",
+      "partition": "aws"
+    },
+    "system": "nitro"
+  },
+  "dynamic": {
+    "accountId": "315915554123",
+    "architecture": "x86_64",
+    "availabilityZone": "us-east-1d",
+    "billingProducts": null,
+    "devpayProductCodes": null,
+    "marketplaceProductCodes": null,
+    "imageId": "ami-090c309e8ced8ecc2",
+    "instanceId": "i-058ebb40c1fc3f834",
+    "instanceType": "t3.micro",
+    "kernelId": null,
+    "pendingTime": "2025-09-17T18:18:13Z",
+    "privateIp": "172.31.22.198",
+    "ramdiskId": null,
+    "region": "us-east-1",
+    "version": "2017-09-30"
+  }
+}

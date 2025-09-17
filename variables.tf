@@ -1,12 +1,18 @@
 variable "instance_name" {
-  default = "Coding-challenge-instance"
+  description = "Name of the EC2 instance"
+  type        = string
+  default     = "Coding-challenge-instance"
 }
 
 variable "instance_type" {
-  default =  "t3.micro"
+  description = "Type of EC2 intstance"
+  type        = string
+  default     = "t3.micro"
 }
 variable "key_name" {
-  default = "coding-challenge-instance-key"
+  description = "Key-pair name"
+  type        = string
+  default     = "coding-challenge-instance-key"
 }
 
 variable "fetch_key" {
